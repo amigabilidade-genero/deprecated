@@ -7,4 +7,4 @@ Estrutura:
 	App: diretório da aplicação principal do projeto - Amigabilidade de Gênero;
 	Crawler: diretório do crawler de pesquisa de processos jurídicos;
 	Docs: documentação do projeto.
-Teste d
+Teste d d

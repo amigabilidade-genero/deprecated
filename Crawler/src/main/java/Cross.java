@@ -42,17 +42,21 @@ public class Cross {
         webDiver.get("https://as1.trt3.jus.br/juris/consultaBaseCompleta.htm");
         //webDiver.findElement(By.name("q")).sendKeys(Keys.ENTER);
         searchBox = webDiver.findElement(By.id("campo:buscaTextualTodasPalavras"));
-        searchBox.sendKeys(webDiver.findElement(By.tagName("td")).getText());
+        searchBox.sendKeys("assédio");
+       // Thread.sleep(4000);
         searchBox = webDiver.findElement(By.id("campo:buscaTextualExpressao"));
-        searchBox.sendKeys(searchBox.getText());
+        searchBox.sendKeys("moral");
+       // Thread.sleep(4000);
         searchBox = webDiver.findElement(By.id("campo:buscaTextualQualquer"));
-        searchBox.sendKeys(searchBox.getText());
+        searchBox.sendKeys("mulher");
+        //Thread.sleep(4000);
         searchBox = webDiver.findElement(By.id("campo:buscaTextualNenhuma"));
         searchBox.sendKeys(searchBox.getText());
         searchBox = webDiver.findElement(By.id("campo:verifyCaptcha"));
         searchBox.sendKeys(searchBox.getText());
         searchBox = webDiver.findElement(By.id("campo:pesquisar"));
-        searchBox.sendKeys(searchBox.getText());
+        searchBox.sendKeys("não sei");
+        //Thread.sleep(4000);
         searchBox.click();
 
         //searchBox.submit();

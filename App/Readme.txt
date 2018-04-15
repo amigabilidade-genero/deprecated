@@ -1,1 +1,0 @@
-Diretório da aplicação

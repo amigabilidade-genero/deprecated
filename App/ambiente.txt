@@ -1,0 +1,17 @@
+Preparação ambiente node:
+ - node instalado
+ - nvm instalado
+ - npm instalado
+ - npm init (informações do projeto)
+ - express: npm install express -save
+ - ejs: npm install ejs --save
+ - nodemon: npm install -g nodemon --save
+ - mysql: npm install mysql --save
+ - consign: npm install consign --save
+ - body-parser: npm install body-parser --save
+ - express-validator: npm install express-validator --save
+ - jquery: npm install jquery --save
+ - jsdom: npm install jsdom --save
+ - jshint: npm install -g jshint --save
+ - templatesjs: npm install templatesjs --save
+ - session: npm install express-session --save

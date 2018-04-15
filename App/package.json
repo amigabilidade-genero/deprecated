@@ -1,0 +1,33 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "\"Aplicação de classificação de entidades por Amigabilidade de Gênero, com Análise de Sentimentos\"",
+  "main": "ag.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ag.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amigabilidade-genero/AmigabilidadeGenero.git"
+  },
+  "keywords": [
+    "AmigabilidadeGenero"
+  ],
+  "author": "IFMG Campus Sabara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amigabilidade-genero/AmigabilidadeGenero/issues"
+  },
+  "homepage": "https://github.com/amigabilidade-genero/AmigabilidadeGenero#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.1.2",
+    "jquery": "^3.3.1",
+    "mysql": "^2.15.0"
+  }
+}

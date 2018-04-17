@@ -35,7 +35,7 @@ application.use(
 
 //configuracao do consign
 consign()
-  .include('config/dbConnection.js') //devemos definir o arquivo dbConnection.js porque o services estah dentro de config
+  .include('config/dbConnection.js') //devemos definir o arquivo dbConnection.js porque o services (server) jah dentro de config
   .then('src/models')
   .then('src/controllers')
   .then('src/routes')

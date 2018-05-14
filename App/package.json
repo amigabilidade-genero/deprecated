@@ -2,10 +2,10 @@
   "name": "app",
   "version": "0.0.1",
   "description": "\"Aplicação de classificação de entidades por Amigabilidade de Gênero, com Análise de Sentimentos\"",
-  "main": "ag.js",
+  "main": "amora.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ag.js"
+    "start": "node amora.js"
   },
   "repository": {
     "type": "git",

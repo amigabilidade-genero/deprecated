@@ -1,72 +1,67 @@
 package main.java;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import SeleniumBrowser.Browser;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class Cross {
 
-    public static WebDriver webDiver;
-    public static String strXpath;
-    public static  WebElement searchBox;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\usuario\\IdeaProjects\\Crawler\\lib\\chromedriver.exe");
+    public static WebElement searchBox;
+    private static List<String> listUrls;
 
+    public static void main(String[] args) {
+        JusBrasilModern();
+    }
 
-        ChromeOptions options = new ChromeOptions();
+    private static void JusBrasilModern() {
+        WebDriver webDiver = new Browser().chromeDriver();
+        try {
+            webDiver.get("https://www.jusbrasil.com.br/jurisprudencia/busca?q=assédio+2017");
 
-        HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
-        options.addArguments("test-type");
-        options.addArguments("start-maximized");
-        options.addArguments("--js-flags=--expose-gc");
-        options.addArguments("--enable-precise-memory-info");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-default-apps");
-        options.addArguments("test-type=browser");
-        options.addArguments("disable-infobars");
-        options.addArguments("--disable-extensions"); // to disable browser extension popup
+           // if (webDiver.findElements(By.className("content-body chrome-67 windows")).i)
+           //     webDiver.get("https://www.jusbrasil.com.br/jurisprudencia/busca?q=assédio+2017");
 
-        DesiredCapabilities cap = DesiredCapabilities.chrome();
-        cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
-        cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-        cap.setCapability(ChromeOptions.CAPABILITY, options);
+            WebElement select = webDiver.findElement(By.className("SearchResults-documents"));
+            List<WebElement> opt = select.findElements(By.tagName("div"));
+            listUrls = new ArrayList<String>();
+            for (WebElement option : opt) {
+                searchBox = option.findElement(By.className("BaseSnippetWrapper-title"));
+                //searchBox = searchBox.findElement(By.tagName("a"));
+                //listUrls.add(searchBox.getAttribute("href"));
+                listUrls.add(searchBox.getText());
+            }
 
-        webDiver = new ChromeDriver(cap);
-        webDiver.get("https://as1.trt3.jus.br/juris/consultaBaseCompleta.htm");
-        //webDiver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-        searchBox = webDiver.findElement(By.id("campo:buscaTextualTodasPalavras"));
-        searchBox.sendKeys("assédio");
-       // Thread.sleep(4000);
-        searchBox = webDiver.findElement(By.id("campo:buscaTextualExpressao"));
-        searchBox.sendKeys("moral");
-       // Thread.sleep(4000);
-        searchBox = webDiver.findElement(By.id("campo:buscaTextualQualquer"));
-        searchBox.sendKeys("mulher");
-        //Thread.sleep(4000);
-        searchBox = webDiver.findElement(By.id("campo:buscaTextualNenhuma"));
-        searchBox.sendKeys(searchBox.getText());
-        searchBox = webDiver.findElement(By.id("campo:verifyCaptcha"));
-        searchBox.sendKeys(searchBox.getText());
-        searchBox = webDiver.findElement(By.id("campo:pesquisar"));
-        searchBox.sendKeys("não sei");
-        //Thread.sleep(4000);
-        searchBox.click();
+            webDiver.close();
 
-        //searchBox.submit();
+        } catch (Exception e) {
+            webDiver.close();
+            System.out.print(e.getMessage());
+        }
+    }
 
+    private static void JusBrasilOld() {
+        WebDriver webDiver = new Browser().chromeDriver();
+        try {
 
+            webDiver.get("https://www.jusbrasil.com.br/jurisprudencia/busca?q=assédio+2017");
+            // implementar
+            webDiver.close();
 
-      /*  for (int i = 1; i <= 5; i++) {
-            strXpath = "//a[@class='f1' and text()='" + i + "']";
-            webDiver.findElement(By.xpath(strXpath)).click();
-            Thread.sleep(4000);
-        }*/
+        } catch (Exception e) {
+            webDiver.close();
+            System.out.print(e.getMessage());
+        }
     }
 }
